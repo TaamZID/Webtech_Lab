@@ -87,24 +87,40 @@ include "newHeader.php";
         <fieldset style="width:30%;text-align: center;margin-left: 505;">
             <legend>EDIT PROFILE</legend>
 
-            <label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Name: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
-            <input type="text" name="name" value="<?php echo $name;?>">            
+            <label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Name: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+            </label>
+            <input type="text" name="name" value="  <?php 
+              if(isset($_SESSION['name'])){
+                echo $_SESSION['name'];
+              }
+              ?>">            
             
             <hr style="width:60%;text-align:left;margin-left:110">
             
             <label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Email: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
-            <input type="text" name="email" value="<?php echo $email;?>"> 
+            <input type="text" name="email" value="<?php 
+              if(isset($_SESSION['name'])){
+                echo $_SESSION['email'];
+              }
+               ?>"> 
             
             <hr style="width:60%;text-align:left;margin-left:110">
 
-            <label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Gender:&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;</label> <input type="radio" name="gender" <?php if (isset($gender) && $gender=="Female") echo "checked";?> value="Female">Female
-            <input type="radio" name="gender" <?php if (isset($gender) && $gender=="Male") echo "checked";?> value="Male">Male
-            <input type="radio" name="gender" <?php if (isset($gender) && $gender=="Other") echo "checked";?> value="Other">Other  
+            <label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Gender:&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+
+            </label> <input type="radio" name="gender"value="Female" id="Female" <?php if($_SESSION['gender']=='Female') echo "checked";?> value="Female"> Female
+            <input type="radio" name="gender"value="Male" id="Male" <?php if($_SESSION['gender']=='Male') echo "checked";?> value="Male">Male
+            <input type="radio" name="gender"value="Other" id="Other" <?php if($_SESSION['gender']=='Other') echo "checked";?> value="Other">Other    
             
             <hr style="width:60%;text-align:left;margin-left:110">
 
             
-            <label>&nbsp;Date Of Birth: </label><input type="date" name="dob" value="<?php echo $dob;?>">
+            <label>&nbsp;&nbsp;&nbsp;Date Of Birth: &nbsp;&nbsp;</label><input type="text" name="dob" value=" <?php 
+              if(isset($_SESSION['name'])){
+                echo $_SESSION['dob'];
+              }
+               ?>">
                
             
             <hr style="width:60%;text-align:left;margin-left:110">
